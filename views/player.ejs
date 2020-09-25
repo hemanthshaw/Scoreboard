@@ -1,0 +1,57 @@
+<html>
+    
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<title>Live IPL Scores</title>
+<body  style="background-color: #74EBD5;
+background-image: linear-gradient(199deg, #74EBD5 0%, #9FACE6 100%);
+">
+    <div align="center">
+        <h3><%=data.fullName%></h3>
+    <img src="<%=data.imageURL%>" alt="Oops Image">
+    </div>
+    
+    <table class="table table-striped"  align="center" style="width:50%;margin-top:20px;">
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td><%=data.name%></td>
+          </tr>
+          <tr>
+            <td>About</td>
+            <td><%=data.profile%></td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td><%=data.currentAge%></td>
+          </tr>
+          <tr>
+            <td>battingStyle</td>
+            <td><%=data.battingStyle%></td>
+          </tr>
+          <tr>
+            <td>bowlingStyle</td>
+            <td><%=data.bowlingStyle%></td>
+          </tr>
+          <tr>
+            <td>majorTeams</td>
+            <td><%=data.majorTeams%></td>
+          </tr>
+          <tr>
+            <td>Born</td>
+            <td><%=data.born%></td>
+          </tr>
+          <tr>
+            <td>country</td>
+            <td><%=data.country%></td>
+          </tr>
+          <tr>
+            <td>playingRole</td>
+            <td><%=data.playingRole%></td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>

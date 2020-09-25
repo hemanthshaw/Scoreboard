@@ -1,0 +1,190 @@
+<style>
+.main {
+    width: 30vw;
+    height: auto;
+    border-radius: 25px;
+    margin: auto;
+    position: relative;
+    top: 15vh;
+    padding: 2vw;
+    color: white;
+    background-image: linear-gradient( 109.6deg,  rgba(5,84,94,1) 16%, #bbb 91.1% );
+}
+
+
+.flag {
+    height: 3vw;
+    width: 4vw
+}
+
+.overs {
+    color: silver;
+    position: relative;
+    bottom: 1vw
+}
+
+.score {
+    position: relative;
+    bottom: 0.5vw;
+    color: white
+}
+
+span {
+    color: white
+}
+
+tr {
+    border: 2px solid white
+}
+
+.right1 {
+    text-align: right
+}
+
+.head {
+    font-size: 1.3vw
+}
+
+.day {
+    font-size: 1vw;
+    color: silver
+}
+
+.target {
+    font-size: 1vw
+}
+
+.res {
+    font-size: 1.5vw
+}
+
+.match {
+    color: silver
+}
+a:link, a:visited {
+  background-color: white;
+  color: black;
+  border: 2px solid blue;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+a:hover, a:active {
+  background-color: black;
+  color: white;
+}
+body{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
+
+}
+@media only screen and (max-width: 425px) {
+    .main {
+        width: 100vw;
+        height: 100vw;
+        padding: 4vw
+    }
+
+    .flag {
+        width: 10vw;
+        height: 8vw
+    }
+
+    .head {
+        font-size: 5vw
+    }
+
+    .day {
+        font-size: 4vw
+    }
+
+    .target {
+        font-size: 4vw
+    }
+
+    .res {
+        font-size: 5vw
+    }
+}
+img {
+  border-radius: 50%;
+  width: 150px;
+  height:100px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
+<title>Live IPL Scores</title>
+<body>
+    <div class="main">
+        <p class="head" align="center">IPL Season 2020 <span class="right day"></span></p><br>
+        <center>
+            <span>
+                <%if(databody['data']['team-1']=='Delhi Capitals'){%>
+                  <img src="/images/dc.jpeg" alt="">
+                  <%}%>
+                  <%if(databody['data']['team-1']=='Kings XI Punjab'){%>
+                    <img src="/images/k11.jpeg" alt="">
+                  <%}%>
+                  <%if(databody['data']['team-1']=='Sunrisers Hyderabad'){%>
+                    <img src="/images/srh.jpeg" alt="">
+                  <%}%>
+                  <%if(databody['data']['team-1']=='Royal Challengers Bangalore'){%>
+                    <img src="/images/rcb.jpeg" alt="">
+                  <%}%>
+                  <%if(databody['data']['team-1']=='Rajasthan Royals'){%>
+                    <img src="/images/rr.jpeg" alt="">
+                  <%}%>
+                  <%if(databody['data']['team-1']=='Chennai Super Kings'){%>
+                    <img src="/images/csk.jpeg" alt="">
+                  <%}%>
+                  <%if(databody['data']['team-1']=='Kolkata Knight Riders'){%>
+                    <img src="/images/kkr.jpeg" alt="">
+                  <%}%> 
+                  <%if(databody['data']['team-1']=='Mumbai Indians'){%>
+                    <img src="/images/mi.jpeg" alt="no pic">
+                  <%}%> 
+                   <strong>VS</strong>
+                   <%if(databody['data']['team-2']=='Delhi Capitals'){%>
+                    <img src="/images/dc.jpeg" alt="">
+                    <%}%>
+                    <%if(databody['data']['team-2']=='Kings XI Punjab'){%>
+                      <img src="/images/k11.jpeg" alt="">
+                    <%}%>
+                    <%if(databody['data']['team-2']=='Sunrisers Hyderabad'){%>
+                      <img src="/images/srh.jpeg" alt="">
+                    <%}%>
+                    <%if(databody['data']['team-2']=='Royal Challengers Bangalore'){%>
+                      <img src="/images/rcb.jpeg" alt="">
+                    <%}%>
+                    <%if(databody['data']['team-2']=='Rajasthan Royals'){%>
+                      <img src="/images/rr.jpeg" alt="">
+                    <%}%>
+                    <%if(databody['data']['team-2']=='Chennai Super Kings'){%>
+                      <img src="/images/csk.jpeg" alt="">
+                    <%}%>
+                    <%if(databody['data']['team-2']=='Kolkata Knight Riders'){%>
+                      <img src="/images/kkr.jpeg" alt="">
+                    <%}%> 
+                    <%if(databody['data']['team-2']=='Mumbai Indians'){%>
+                      <img src="/images/mi.jpeg" alt="no pic">
+                    <%}%> 
+                </span>
+            <p class="res"><%=databody.data.stat%></p>
+            <p class="target"><u><%=databody.data.score%></u></p>
+            <p class="res"><%=databody.data.description%></p>
+             <%if(databody.data.matchStarted){%>
+             <a href="/results/<%=databody.id%>/squad">Squad</a>
+             <%}%>
+             <%if(databody.data.matchStarted){%>     
+            <a href="/results/<%=databody.id%>/board">Board</a></p>
+             <%}else{%>
+                <h3>Match is yet to start</h3>
+              <%}%>  
+        </center>
+    </div>
+</body>

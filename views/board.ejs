@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+body{
+  background-color: #FFDEE9;
+background-image: linear-gradient(114deg, #FFDEE9 0%, #B5FFFC 50%, #ffffff 100%);
+
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+<title>Live IPL Scores</title>
+<%if(score){%>
+</head>
+ <h1 align="center">First Innings</h1>
+<body> 
+<%if(score.field){%>  
+<h3 align="center">Fileding ScoreBoard</h3>
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Runout</th>
+      <th>Stumped</th>
+      <th>Bowled</th>
+      <th>LBW</th>
+      <th>Catch</th>
+    </tr>
+    <tr>
+    <%for(var i=0;i<score.field.length;i++){ %>
+        <tr>
+        <td>
+          <%if(score.field[i].name){%>
+          <%=score.field[i].name%>
+        <%}%></td>
+        <td>
+          <%if(score.field[i].runout){%>
+          <%=score.field[i].runout%>
+        <%}%></td> 
+        <td>
+          <%if(score.field[i].stumped){%>
+          <%=score.field[i].stumped%>
+        <%}%></td>
+        <td>
+          <%if(score.field[i].bowled){%>
+          <%=score.field[i].bowled%>
+        <%}%></td>
+        <td>
+          <%if(score.field[i].lbw){%>
+          <%=score.field[i].lbw%>
+        <%}%></td>
+        <td>
+          <%if(score.field[i].catch){%>
+          <%=score.field[i].catch%>
+        <%}%></td>
+    </tr>
+    <%};%>
+  </tr>
+  </table>
+</div>
+<%}%>
+
+<%if(score.bowl){%>
+<h3 align="center">Bowling Score Board</h3>
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+      <th>bowler</th>
+      <th>Runs</th>
+      <th>Maiden</th>
+      <th>Overs</th>
+      <th>Economy</th>
+      <th>Wickets</th>
+      <th>Wide</th>
+      <th>Nobe</th>
+    </tr>
+    <tr>
+    <%for(var i=0;i<score.bowl.length;i++){ %>
+        <%if(score.bowl[i].O!="Batsman" && score.bowl[i].O!="Wicketkeeper" && score.bowl[i].O!="Allrounder" && score.bowl[i].O!="Bowler") {%>   
+        <tr>
+        <td><%=score.bowl[i].bowler%></td>
+        <%if(score.bowl[i].R){%>
+        <td><%=score.bowl[i].R%></td>
+       <%};%>
+    <%if(score.bowl[i].M){%>
+        <th><%=score.bowl[i].M%></td>
+     <%};%>       
+     <%if(score.bowl[i].O){%>
+        <th><%=score.bowl[i].O%></td>
+    <%};%>  
+    <%if(score.bowl[i].Econ){%>        
+        <th><%=score.bowl[i].Econ%></td>
+    <%};%>  
+    <%if(score.bowl[i].W){%>       
+        <td><%=score.bowl[i].W%></td>
+    <%};%>    
+    <%if(score.bowl[i].WD){%>       
+        <td><%=score.bowl[i].WD%></td>
+    <%};%>  
+   
+    <%if(score.bowl[i].NB){%>       
+        <td><%=score.bowl[i].NB%></td>
+    <%};%>  
+
+    </tr>
+    <%};%>
+    <%};%>
+  </tr>
+  </table>
+</div>
+<%}%>
+
+
+<%if(score.bat){%>
+<h3 align="center">Bating Score Board</h3>
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+      <th>batsman</th>
+      <th>SR</th>
+      <th>dismissal</th>
+      <th>B</th>
+      <th>R</th>
+      <th>6s</th>
+      <th>4s</th>
+    </tr>
+    <% for(var i=0;i<score.bat.length;i++){%>
+        <tr>
+          <td><% if(score.bat[i].batsman){%>
+        <%=score.bat[i].batsman%>
+       <% };%> </td>  
+       <td><% if(score.bat[i].SR && score.bat[i].SR!="bowled"){%>
+        <%=score.bat[i].SR%>
+       <% };%></td>
+       <td><% if(score.bat[i]['dismissal-info']){%>
+        <%=score.bat[i]['dismissal-info']%>
+       <% };%></td> 
+       <td><% if(score.bat[i].B){%>
+        <%=score.bat[i].B%>
+       <% };%></td>  
+       <td><% if(score.bat[i].R){%>
+        <%=score.bat[i].R%>
+       <% };%></td>
+       <td> <% if(score.bat[i]['6s']){%>
+        <%=score.bat[i]['6s']%>
+       <% };%></td>
+       <td><% if(score.bat[i]['4s']){%>
+        <%=score.bat[i]['4s']%>
+       <% };%></td>
+    </tr>
+     <%};%>   
+  </table>
+</div>
+<div>
+
+</div>
+<%}%>
+
+
+<%if(score.field2){%>
+<h1 align="center">Second Innings</h1>
+<%if(score.field2){%>
+<h2><marquee behavior="" direction="right"><%=score.field2.title%></marquee></h2>
+<%}%>
+<%if(score.field2){%>  
+<h3 align="center">Fielding Score</h3>
+<div>
+  <div style="overflow-x:auto;">
+    
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Runout</th>
+        <th>Stumped</th>
+        <th>Bowled</th>
+        <th>LBW</th>
+        <th>Catch</th>
+      </tr>
+      <tr>
+      <%for(var i=0;i<score.field2.scores.length;i++){ %>
+          <tr>
+          <td><%=score.field2.scores[i].name%></td>
+          <td><%=score.field2.scores[i].runout%></td>
+          <th><%=score.field2.scores[i].stumped%></td>
+          <th><%=score.field2.scores[i].bowled%></td>
+          <th><%=score.field2.scores[i].lbw%></td>
+          <td><%=score.field2.scores[i].catch%></td>
+      </tr>
+      <%};%>
+ 
+    </tr>
+    </table>
+  </div>
+  <%}%>
+ <%}%>
+ <%if(score.bowl2){%>
+  <h3 align="center">Bowling Score</h3>
+  <div style="overflow-x:auto;">
+    <table>
+      <tr>
+        <th>bowler</th>
+      <th>Runs</th>
+      <th>Maiden</th>
+      <th>Overs</th>
+      <th>Economy</th>
+      <th>Wickets</th>
+      <th>Wide</th>
+      <th>Nobe</th>
+      </tr>
+      <tr>
+ 
+      <%for(var i=0;i<score.bowl2.length;i++){ %>
+          <tr>
+          <td><%=score.bowl2[i]['bowler']%></td>
+          <td><%=score.bowl2[i]['R']%></td>
+          <th><%=score.bowl2[i]['M']%></td>
+          <th><%=score.bowl2[i]['O']%></td>
+          <th><%=score.bowl2[i]['Econ']%></td>
+          <th><%=score.bowl2[i]['W']%></td>
+            <th><%=score.bowl2[i]['WD']%></td>
+          <td><%=score.bowl2[i]['NB']%></td>
+      </tr>
+      <%};%>
+      
+    </tr>
+    </table>
+  </div>
+  <%};%>
+
+  <%if(score.bat2){%>
+  <h3 align="center">Batting Score</h3>
+  <div style="overflow-x:auto;">
+    <table>
+      <tr>
+        <th>batsman</th>
+        <th>SR</th>
+        <th>dismissal</th>
+        <th>B</th>
+        <th>R</th>
+        <th>6s</th>
+        <th>4s</th>
+      </tr>
+      <tr>
+      
+      <%for(var i=0;i<score.bat2.length;i++){ %>
+          <tr>
+          <td><%=score.bat2[i]['batsman']%></td>
+          <td><%if(score.bat2[i].SR){%>
+            <%=score.bat2[i].SR%>
+            <%}%></td>
+          
+          <td> <%if(score.bat2[i]['dismissal-info']){%>
+          <%=score.bat2[i]['dismissal-info']%>
+         <%}%></td>
+         <td> <%if(score.bat2[i]['B']){%>
+          <%=score.bat2[i]['B']%>
+         <%}%></td>
+         <td> <%if(score.bat2[i]['R']){%>
+          <%=score.bat2[i]['R']%>
+         <%}%></td>
+         <td> <%if(score.bat2[i]['6s']){%>
+          <%=score.bat2[i]['6s']%>
+         <%}%></td>
+         <td> <%if(score.bat2[i]['4s']){%>
+          <%=score.bat2[i]['4s']%>
+         <%}%></td>
+      </tr>
+      <%};%>
+     
+    </tr>
+    </table>
+  </div>
+  <%}%>
+</div>
+<%}%>
+</body>
+</html>

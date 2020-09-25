@@ -1,0 +1,138 @@
+
+<html>
+    <style>
+         
+    .container
+    {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .box{
+         background-color: rgb(255, 255, 255);;
+         width: 300px;
+         margin: 10px;
+         text-align: center;
+         border-radius: 60px;
+         box-shadow: 0 3px 4px #000;
+
+    }
+    h1{
+      font-size: 70px;
+      font-weight: 100;
+      text-align: center;
+      align-content: right;    
+      color: white;    
+    }
+    .gradient {
+      background-image: linear-gradient( 109.6deg,  rgba(5,84,94,1) 16%, #bbb 91.1% );
+		}
+  a:link, a:visited {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 65%;
+  border-color: black;
+}
+a:hover, a:active {
+  background-color: black;
+  color: white;
+}
+a{
+  border: 1px solid black;
+}
+img {
+  border-radius: 50%;
+  margin-top: 7px;
+  width: 100px;
+  height: 75px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+#ipl{
+  width: 200px; 
+  height: 200px;
+}
+    </style>
+     <link rel="stylesheet"
+     href="https://fonts.googleapis.com/css?family=Tangerine">
+     <title>Live IPL Scores</title>
+    <body class="gradient">
+        <%map=['Delhi Capitals','Kings XI Punjab','Sunrisers Hyderabad','Royal Challengers Bangalore','Rajasthan Royals','Chennai Super Kings','Kolkata Knight Riders','Mumbai Indians'];%>
+        <div align="center">
+        <img  id="ipl"src="https://www.graphicsprings.com/filestorage/stencils/4e998e68a2323649ee78e08201b46b26.png?width=500&height=500"  alt="NO logo OOPs">
+      </div>
+        <div class="container">
+            <% for(var i=0;i<data.length;i++) {%>
+                <%  if(data[i].type=='Twenty20' && map.includes(data[i]['team-1'])) {   %>
+                    <div class="box" >
+                       <span>
+                          <%if(data[i]['team-1']=='Delhi Capitals'){%>
+                            <img src="/images/dc.jpeg" alt="">
+                            <%}%>
+                            <%if(data[i]['team-1']=='Kings XI Punjab'){%>
+                              <img src="/images/k11.jpeg" alt="">
+                            <%}%>
+                            <%if(data[i]['team-1']=='Sunrisers Hyderabad'){%>
+                              <img src="/images/srh.jpeg" alt="">
+                            <%}%>
+                            <%if(data[i]['team-1']=='Royal Challengers Bangalore'){%>
+                              <img src="/images/rcb.jpeg" alt="">
+                            <%}%>
+                            <%if(data[i]['team-1']=='Rajasthan Royals'){%>
+                              <img src="/images/rr.jpeg" alt="">
+                            <%}%>
+                            <%if(data[i]['team-1']=='Chennai Super Kings'){%>
+                              <img src="/images/csk.jpeg" alt="">
+                            <%}%>
+                            <%if(data[i]['team-1']=='Kolkata Knight Riders'){%>
+                              <img src="/images/kkr.jpeg" alt="">
+                            <%}%> 
+                            <%if(data[i]['team-1']=='Mumbai Indians'){%>
+                              <img src="/images/mi.jpeg" alt="no pic">
+                            <%}%> 
+                          </span>
+                         <p><strong><%=data[i]['team-1']%></strong></p>
+                         <p><strong>VS</strong></p>
+                         <span>
+                         <%if(data[i]['team-2']=='Delhi Capitals'){%>
+                          <img src="/images/dc.jpeg" alt="">
+                          <%}%>
+                          <%if(data[i]['team-2']=='Kings XI Punjab'){%>
+                            <img src="/images/k11.jpeg" alt="">
+                          <%}%>
+                          <%if(data[i]['team-2']=='Sunrisers Hyderabad'){%>
+                            <img src="/images/srh.jpeg" alt="">
+                          <%}%>
+                          <%if(data[i]['team-2']=='Royal Challengers Bangalore'){%>
+                            <img src="/images/rcb.jpeg" alt="">
+                          <%}%>
+                          <%if(data[i]['team-2']=='Rajasthan Royals'){%>
+                            <img src="/images/rr.jpeg" alt="">
+                          <%}%>
+                          <%if(data[i]['team-2']=='Chennai Super Kings'){%>
+                            <img src="/images/csk.jpeg" alt="">
+                          <%}%>
+                          <%if(data[i]['team-2']=='Kolkata Knight Riders'){%>
+                            <img src="/images/kkr.jpeg" alt="">
+                          <%}%> 
+                          <%if(data[i]['team-2']=='Mumbai Indians'){%>
+                            <img src="/images/mi.jpeg" alt="no pic">
+                          <%}%> 
+                        </span>
+                         <p><strong><%=data[i]['team-2']%></strong></p>
+                         <p><%=new Date(data[i]['dateTimeGMT']).toString().substring(0,25)%></p>
+                         <a href="/results/<%=data[i].unique_id%>" style="border-radius:25px;">Check status</a>
+                         <p></p>
+                    </div>
+                <% }; %>
+            <% }; %>
+        </div>       
+    </body>
+</html>
